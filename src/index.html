@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Planificación de Procesos</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Simulador de Planificación de Procesos</h1>
+        <p class="subtitle">FIFO • LIFO • Round Robin</p>
+      </header>
+
+      <div class="main-content">
+        <!-- Sección de carga de archivos -->
+        <div class="upload-section">
+          <h2>Cargar Datos de Procesos</h2>
+          <div class="file-input-container">
+            <input type="file" class="input-file" accept=".csv,.json,.txt" />
+            <button class="btn btn-primary" onclick="loadFile()">
+              Cargar Archivo
+            </button>
+          </div>
+          <div class="data-preview" id="dataPreview">
+            <h4>Vista previa de datos cargados:</h4>
+            <div id="previewContent"></div>
+          </div>
+        </div>
+
+        <!-- Sección de configuración -->
+        <div class="quantum-section">
+          <label for="quantum"
+            ><strong>Quantum para Round Robin:</strong></label
+          >
+          <input
+            type="number"
+            id="quantum"
+            class="quantum-input"
+            value="4"
+            min="1"
+            max="20"
+          />
+          <button class="btn btn-success" onclick="runAlgorithms()">
+            Ejecutar Algoritmos
+          </button>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <p>Ejecutando algoritmos...</p>
+        </div>
+
+        <!-- Sección de resultados -->
+        <div class="results-section" id="resultsContainer">
+          <!-- Los resultados se mostrarán aquí dinámicamente -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src=".//js/main.js" type="module"></script>
+  </body>
+</html>
