@@ -13,7 +13,7 @@ export const fifo = () => {
   let finish = new Array(processes.length).fill(null);
   let clk = 0;
 
-  // Ordenar por tiempo de llegada (FIFO)
+  // Ordenar por tiempo de llegada
   let procesos = Array.from(processes.keys());
 
   while (finish.some((v) => v === null)) {
@@ -124,9 +124,9 @@ export const roundRobin = (quantum = 4) => {
     let processExecuted = false;
 
     for (let i = 0; i < processes.length; i++) {
-      const arrivalTime = Number(processes[i].ti);
+      const ti = Number(processes[i].ti);
 
-      if (clk >= arrivalTime && finishTimes[i] === null) {
+      if (clk >= ti && finishTimes[i] === null) {
         if (remainingTimes[i] <= quantum) {
           clk += remainingTimes[i];
           finishTimes[i] = clk;
